@@ -442,6 +442,7 @@ def write_detection_results(result_dir, file_number, calib, box_left, pos, dim, 
     '''
     if result_dir is None: return
     result_dir = result_dir + '/data'
+
     # convert the object from cam2 to the cam0 frame
     dis_cam02 = calib.t_cam2_cam0[0]
     
