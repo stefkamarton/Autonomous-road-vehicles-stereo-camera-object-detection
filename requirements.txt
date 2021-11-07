@@ -5,3 +5,4 @@ scipy
 easydict
 pillow
 scipy
+tensorboard
