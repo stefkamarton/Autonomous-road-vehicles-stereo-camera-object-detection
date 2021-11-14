@@ -48,7 +48,7 @@ def parse_args():
   parser.add_argument('--checkpoint', dest='checkpoint', help='checkpoint to load network', default=6477, type=int)
   parser.add_argument('--checkepoch', dest='checkepoch', help='checkepoch to load network', default=5, type=int)
   parser.add_argument('--inputbagfile', dest='inputbagfile', help='location and name of the bag file', default="zed_stereo_depth_0.bag", type=str)
-  parser.add_argument('--readTopic', dest='args.readTopic', help='topics of bag file', default="/zed/zed_node/stereo/image_rect_color", type=str)
+  parser.add_argument('--readTopic', dest='readTopic', help='topics of bag file', default="/zed/zed_node/stereo/image_rect_color", type=str)
   parser.add_argument('--camcalib', dest='camcalib', help='Camera calibration file', default="demo/calib.txt", type=str)
   parser.add_argument('--outputdir', dest='outputdir', help='Result output directory', default="./output", type=str)
   args = parser.parse_args()
@@ -334,7 +334,7 @@ if __name__ == '__main__':
           solve_time = time.time() - solve_tic
 
       im2show = np.concatenate((im2show_left, im2show_right), axis=0)
-      cv2.imwrite(args.outputdir + '/' + k +'.jpg', im2show)
+      cv2.imwrite(args.outputdir + '/' + str(k) +'.jpg', im2show)
       cv2.imshow('result', im2show)
       key = cv2.waitKey(1)
       if 113 == key:
@@ -342,4 +342,3 @@ if __name__ == '__main__':
         cv2.destroyAllWindows()
         bag.close()
         break
-    
